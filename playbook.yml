@@ -1,7 +1,12 @@
 ---
   - hosts: server
     tasks:
-    - name: ensure apache is at the latest version
-      yum:
-        name: httpd
-        state: latest
+    - name: ensure apache is present
+      become: true
+      apt:
+        name: apache2
+        state: present
+    - name: ensure docker-ce exists
+      apt:
+        name: docker-ce
+        state: present
