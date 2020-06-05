@@ -1,0 +1,7 @@
+---
+  - hosts: server
+    tasks:
+    - name: ensure apache is at the latest version
+      yum:
+        name: httpd
+        state: latest
